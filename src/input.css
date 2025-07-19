@@ -1,0 +1,7 @@
+@import "tailwindcss";
+
+@layer utilities {
+  .text-alt-blue {
+    color: var(--color-blue-400);
+  }
+}
