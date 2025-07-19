@@ -1,15 +1,17 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 
 // About Section
 function About() {
-    const skills = [
-        { name: 'JavaScript', level: 90 },
-        { name: 'React', level: 85 },
-        { name: 'Node.js', level: 80 },
-        { name: 'TypeScript', level: 75 },
-        { name: 'Python', level: 70 },
-        { name: 'SQL', level: 75 }
-    ];
+    const skills = useMemo(() => [
+        { name: 'JavaScript/TypeScript', level: 95 },
+        { name: 'Python', level: 90 },
+        { name: 'React.js/Vue.js', level: 90 },
+        { name: 'AWS Cloud Services', level: 85 },
+        { name: 'Node.js/FastAPI', level: 80 },
+        { name: 'C++/C#', level: 75 },
+        { name: 'PostgreSQL/NoSQL', level: 80 },
+        { name: 'Docker/DevOps', level: 75 }
+    ], []);
 
     const [animated, setAnimated] = useState({});
 
@@ -42,60 +44,98 @@ function About() {
         return () => {
             window.removeEventListener('scroll', handleSkillAnimation);
         };
-    }, []);
+    }, [skills]);
 
     return (
-        <section id="about" className="py-24 bg-primary">
-            <div className="container mx-auto px-4">
-                <div className="text-center mb-16">
-                    <h2 className="text-3xl md:text-4xl font-semibold text-primary mb-4 reveal">About Me</h2>
+        <section id="about" className="py-24 bg-primary safe-container">
+            {/* Animated background elements */}
+            <div className="safe-background">
+                <div className="absolute top-20 left-20 w-64 h-64 bg-green opacity-5 rounded-full blur-3xl float transform-gpu"></div>
+                <div className="absolute bottom-20 right-20 w-80 h-80 bg-purple opacity-5 rounded-full blur-3xl float transform-gpu" style={{ animationDelay: '4s' }}></div>
+                <div className="absolute top-1/2 left-1/3 w-48 h-48 bg-accent opacity-3 rounded-full blur-2xl pulse-accent transform-gpu"></div>
+            </div>
+            
+            {/* Grid pattern overlay */}
+            <div className="safe-background opacity-5">
+                <div className="absolute inset-0" style={{
+                    backgroundImage: `
+                        linear-gradient(rgba(16, 185, 129, 0.1) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(16, 185, 129, 0.1) 1px, transparent 1px)
+                    `,
+                    backgroundSize: '40px 40px'
+                }}></div>
+            </div>
+
+            <div className="container mx-auto px-4 safe-content">
+                <div className="text-center mb-20">
+                    <h2 className="text-4xl md:text-5xl font-bold mb-6 text-primary">
+                        About <span className="gradient-text">Me</span>
+                    </h2>
                     <p className="text-muted text-lg max-w-2xl mx-auto font-code">
-                        // Passionate about creating digital solutions that make a difference
+                        {`// Passionate about creating digital solutions that make a difference`}
                     </p>
                 </div>
 
-                <div className="flex flex-col lg:flex-row gap-12 max-w-6xl mx-auto">
+                <div className="flex flex-col lg:flex-row gap-16 max-w-7xl mx-auto">
                     <div className="lg:w-1/2 reveal">
-                        <div className="card-modern p-8 h-full">
-                            <h3 className="text-muted text-lg max-w-2xl mx-auto font-code mb-6">Who I Am</h3>
-                            <div className="space-y-4 text-secondary leading-relaxed">
-                                <p>
-                                    I'm a passionate software engineer with 5+ years of experience building web applications.
-                                    I love solving complex problems and creating intuitive, user-friendly interfaces.
+                        <div className="liquid-glass p-10 h-full hover-glow">
+                            <div className="flex items-center mb-8">
+                                <div className="w-1 h-8 bg-gradient-to-b from-accent to-green mr-4 rounded-full"></div>
+                                <h3 className="text-2xl font-bold text-primary">Who I Am</h3>
+                            </div>
+                            <div className="space-y-6 text-secondary leading-relaxed text-lg">
+                                <p className="transition-all duration-300 hover:text-primary">
+                                    I'm a <span className="text-accent font-semibold">full-stack software engineer</span>, gamer 🎮, and future founder 🚀 with <span className="text-green font-semibold">2+ years of experience</span> building fast, intuitive web apps that actually get used.
                                 </p>
-                                <p>
-                                    My journey began with a Computer Science degree, but my curiosity and love for learning
-                                    have led me to continuously expand my skills across various technologies and frameworks.
+                                <p className="transition-all duration-300 hover:text-primary">
+                                    I thrive where <span className="text-purple font-semibold">clean code meets real-world impact</span>, constantly learning and deploying scalable cloud infrastructure ☁️ with <span className="text-accent font-semibold">AWS</span>. I love solving tough problems, especially ones at the intersection of UX, systems, and AI 🤖.
                                 </p>
-                                <p>
-                                    When I'm not coding, you can find me hiking, reading tech blogs, or contributing to
-                                    open-source projects. I believe in creating software that makes a positive impact.
+                                <p className="transition-all duration-300 hover:text-primary">
+                                    Outside of work, I'm <span className="text-green font-semibold">top 1% in Counter Strike 2</span> 🧠, a die-hard basketball fan 🏀, and always down to connect with people who think big. Lately, I've been diving deep into <span className="text-purple font-semibold">AI workflows and prompt design</span> — shaping the future one experiment at a time.
+                                </p>
+                                <p className="text-accent font-semibold text-l mt-8 font-code">
+                                    Let's build something worth talking about.
                                 </p>
                             </div>
                         </div>
                     </div>
 
                     <div id="skills-section" className="lg:w-1/2 reveal">
-                        <div className="card-modern p-8 h-full">
-                            <h3 className="text-muted text-lg max-w-2xl mx-auto font-code mb-6">Technical Skills</h3>
-                            <div className="space-y-6">
+                        <div className="liquid-glass p-10 h-full hover-glow">
+                            <div className="flex items-center mb-8">
+                                <div className="w-1 h-8 bg-gradient-to-b from-purple to-accent mr-4 rounded-full"></div>
+                                <h3 className="text-2xl font-bold text-primary">Technical Skills</h3>
+                            </div>
+                            <div className="space-y-5">
                                 {skills.map((skill, index) => (
-                                    <div key={skill.name} className={`transition-all duration-500 ${index > 0 ? 'delay-' + (index * 200) : ''}`}>
+                                    <div key={skill.name} className="transition-all duration-500 hover:scale-105">
                                         <div className="flex justify-between mb-2">
-                                            <span className="font-medium text-secondary">{skill.name}</span>
-                                            <span className="text-muted font-mono text-sm">{skill.level}%</span>
+                                            <span className="font-semibold text-primary text-base">{skill.name}</span>
+                                            <span className="text-accent font-code text-xs bg-accent-soft px-2 py-1 rounded-full">{skill.level}%</span>
                                         </div>
-                                        <div className="w-full bg-border-light rounded-full h-2 overflow-hidden">
+                                        <div className="w-full bg-tertiary rounded-full h-2 overflow-hidden shadow-inner">
                                             <div
-                                                className="bg-gradient-to-r from-accent to-accent-light h-2 rounded-full transition-all duration-1000 ease-out"
+                                                className="h-2 rounded-full transition-all duration-1500 ease-out shadow-lg"
                                                 style={{
                                                     width: animated[skill.name] ? `${skill.level}%` : '0%',
-                                                    transitionDelay: `${index * 100}ms`
+                                                    transitionDelay: `${index * 150}ms`,
+                                                    background: 'linear-gradient(to right, #00d4ff, #a855f7, #10b981)',
+                                                    boxShadow: '0 0 15px rgba(0, 212, 255, 0.4)'
                                                 }}
                                             />
                                         </div>
                                     </div>
                                 ))}
+                            </div>
+                            
+                            {/* Certifications badge */}
+                            <div className="mt-8 p-4 bg-glass rounded-xl border border-accent/20">
+                                <div className="flex items-center justify-center">
+                                    <div className="text-center">
+                                        <div className="text-accent font-bold text-base mb-1">🏆 Certified</div>
+                                        <div className="text-secondary font-code text-xs">AWS Cloud Practitioner</div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

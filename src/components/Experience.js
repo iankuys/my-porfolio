@@ -88,7 +88,7 @@ function Experience() {
                 <div className="absolute bottom-20 right-20 w-80 h-80 bg-purple opacity-5 rounded-full blur-3xl float transform-gpu" style={{ animationDelay: '3s' }}></div>
                 <div className="absolute top-1/2 right-1/4 w-48 h-48 bg-green opacity-3 rounded-full blur-2xl pulse-accent transform-gpu"></div>
             </div>
-            
+
             {/* Grid pattern overlay */}
             <div className="safe-background opacity-5">
                 <div className="absolute inset-0" style={{
@@ -102,7 +102,7 @@ function Experience() {
 
             <div className="container mx-auto px-4 safe-content">
                 <div className="text-center mb-16">
-                    <h2 className="text-3xl md:text-4xl font-bold mb-4 text-primary">
+                    <h2 className="text-4xl md:text-5xl font-bold mb-4 text-primary">
                         Work <span className="gradient-text">Experience</span>
                     </h2>
                     <p className="text-muted text-md max-w-2xl mx-auto font-code">
@@ -138,23 +138,25 @@ function Experience() {
                                             : 'opacity-0 -translate-x-6'
                                             }`}>
                                             <div className="flex flex-col lg:flex-row lg:items-start justify-between mb-6">
-                                                <div className="flex-1">
+                                                <div className="flex flex-col lg:items-start flex-1">
                                                     <h3 className="text-2xl font-bold text-primary mb-2 hover:text-accent transition-colors">
                                                         {exp.title}
                                                     </h3>
                                                     <h4 className="text-accent font-semibold mb-2 text-lg">
                                                         {exp.company}
                                                     </h4>
+                                                </div>
+                                                <div className='flex flex-row lg:flex-col justify-center items-center lg:items-end gap-3'>
                                                     {exp.location && (
-                                                        <p className="text-muted text-sm mb-2 font-code flex items-center">
+                                                        <p className="text-muted text-sm font-code flex items-center">
                                                             <span className="text-purple mr-2">📍</span>
                                                             {exp.location}
                                                         </p>
                                                     )}
+                                                    <span className="bg-glass text-accent text-sm font-code px-4 py-2 rounded-full whitespace-nowrap border border-accent/20 hover:border-accent/40 transition-all">
+                                                        {exp.period}
+                                                    </span>
                                                 </div>
-                                                <span className="bg-glass text-accent text-sm font-code px-4 py-2 rounded-full mt-2 lg:mt-0 self-start whitespace-nowrap border border-accent/20 hover:border-accent/40 transition-all">
-                                                    {exp.period}
-                                                </span>
                                             </div>
 
                                             <p className="text-secondary leading-relaxed mb-6 text-base">
@@ -179,11 +181,11 @@ function Experience() {
                             </div>
                         ))}
                     </div>
-                    
+
                     {/* Summary stats section */}
                     <div className="mt-16 grid md:grid-cols-3 gap-6">
                         <div className="liquid-glass p-6 text-center hover-glow">
-                            <div className="text-3xl font-bold text-accent mb-2">2+</div>
+                            <div className="text-3xl font-bold text-accent mb-2">3+</div>
                             <div className="text-muted font-code text-sm">Years Experience</div>
                         </div>
                         <div className="liquid-glass p-6 text-center hover-glow">

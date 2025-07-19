@@ -26,7 +26,7 @@ function Header({ activeSection, isMenuOpen, setIsMenuOpen }) {
                 </button>
 
                 {/* Desktop Navigation */}
-                <nav className="hidden md:flex">
+                <nav className="hidden md:flex items-center">
                     <ul className="flex space-x-8">
                         {navLinks.map(link => (
                             <li key={link.name}>
@@ -46,6 +46,26 @@ function Header({ activeSection, isMenuOpen, setIsMenuOpen }) {
                             </li>
                         ))}
                     </ul>
+                    
+                    {/* Resume Button */}
+                    <a
+                        href="/resume.pdf"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="ml-8 px-5 py-2.5 text-sm font-medium text-white rounded-lg transition-all duration-300 hover:scale-105 relative overflow-hidden group border border-accent/40 hover:border-accent/60"
+                        style={{
+                            background: 'rgba(10, 10, 10, 0.8)',
+                            boxShadow: '0 0 20px rgba(0, 212, 255, 0.5), 0 0 40px rgba(0, 212, 255, 0.3)',
+                        }}
+                        onMouseEnter={(e) => {
+                            e.target.style.boxShadow = '0 0 30px rgba(0, 212, 255, 0.7), 0 0 60px rgba(0, 212, 255, 0.4)';
+                        }}
+                        onMouseLeave={(e) => {
+                            e.target.style.boxShadow = '0 0 20px rgba(0, 212, 255, 0.5), 0 0 40px rgba(0, 212, 255, 0.3)';
+                        }}
+                    >
+                        <span className="relative z-10">Resume</span>
+                    </a>
                 </nav>
             </div>
 
@@ -68,6 +88,27 @@ function Header({ activeSection, isMenuOpen, setIsMenuOpen }) {
                                 </a>
                             </li>
                         ))}
+                        <li className="px-4 py-2">
+                            <a
+                                href="/resume.pdf"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="block px-5 py-3 text-sm font-medium text-white rounded-lg transition-all text-center hover:scale-105 relative overflow-hidden group border border-accent/40 hover:border-accent/60"
+                                style={{
+                                    background: 'rgba(10, 10, 10, 0.8)',
+                                    boxShadow: '0 0 20px rgba(0, 212, 255, 0.5), 0 0 40px rgba(0, 212, 255, 0.3)',
+                                }}
+                                onMouseEnter={(e) => {
+                                    e.target.style.boxShadow = '0 0 30px rgba(0, 212, 255, 0.7), 0 0 60px rgba(0, 212, 255, 0.4)';
+                                }}
+                                onMouseLeave={(e) => {
+                                    e.target.style.boxShadow = '0 0 20px rgba(0, 212, 255, 0.5), 0 0 40px rgba(0, 212, 255, 0.3)';
+                                }}
+                                onClick={() => setIsMenuOpen(false)}
+                            >
+                                <span className="relative z-10">Resume</span>
+                            </a>
+                        </li>
                     </ul>
                 </nav>
             )}

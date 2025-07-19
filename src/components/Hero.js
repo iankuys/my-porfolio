@@ -98,19 +98,18 @@ function Hero({ isLoaded }) {
                         Ian Ku<span className="gradient-text">.</span>
                     </h1>
                     <h2 className={`text-xl md:text-2xl text-secondary mb-8 leading-relaxed ${isLoaded ? 'animate-fadeIn delay-200' : 'opacity-0'}`}>
-                        <span className="font-medium text-accent">Software Engineer</span> & <br />
-                        <span className="font-medium text-purple">DevOps Engineer</span>
+                        <span className="font-medium text-accent">Software Engineer</span> & <span className="font-medium text-purple">DevOps Engineer</span>
                     </h2>
                     <p className={`text-lg text-muted mb-10 leading-relaxed ${isLoaded ? 'animate-fadeIn delay-400' : 'opacity-0'}`}>
                         I craft <span className="text-accent font-medium">exceptional digital experiences</span> with clean, efficient code.
                         Passionate about building <span className="text-green font-medium">scalable solutions</span> and beautiful user interfaces.
                     </p>
-                    <div className={`flex flex-col sm:flex-row gap-4 ${isLoaded ? 'animate-fadeIn delay-600' : 'opacity-0'}`}>
+                    <div className={`flex flex-col md:flex-row gap-4 justify-start md:justify-center ${isLoaded ? 'animate-fadeIn delay-600' : 'opacity-0'}`}>
                         <a
                             href="#contact"
                             className="btn-primary hover-lift hover-glow text-center"
                         >
-                            Get In Touch
+                            Let's Connect
                         </a>
                         <a
                             href="#projects"

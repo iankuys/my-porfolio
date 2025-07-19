@@ -95,7 +95,7 @@ function Projects() {
             </div>
             
             <div className="container mx-auto px-4 safe-content">
-                <h2 className="text-4xl font-bold mb-4 text-center text-primary">
+                <h2 className="text-4xl md:text-5xl font-bold mb-4 text-center text-primary">
                     My <span className="gradient-text">Projects</span>
                 </h2>
                 <p className="text-center text-muted mb-12 font-code text-md">
