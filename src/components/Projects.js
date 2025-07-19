@@ -6,7 +6,7 @@ const projects = [
         title: "Computer Vision Smart Curtains",
         description: "An automated, remote-controlled curtains project with web application and firmware developed for UC Irvine. Features computer vision capabilities for intelligent automation.",
         tech: ["Python", "Flask", "Raspberry Pi", "Computer Vision", "OpenCV", "JavaScript"],
-        images: ["/projects/cv-curtains/cv-curtains-2.gif", "/projects/cv-curtains.gif"],
+        images: ["/projects/cv-curtains/cv-curtains-2.gif", "/projects/cv-curtains/cv-curtains.gif"],
         githubUrl: "https://github.com/iankuys/cv_automated_curtains",
         liveUrl: null,
         period: "Mar 2022 - Jun 2022"
@@ -15,7 +15,7 @@ const projects = [
         title: "Online Poker Game",
         description: "A real-time, turn-based online poker game built in C using GTK for a sleek and responsive frontend. Features multiplayer functionality through sockets for seamless online play.",
         tech: ["C", "GTK+", "Game Programming", "Git", "Sockets"],
-        images: ["/projects/poker-game/poker-game.png", "/projects/poker-game-2.png"],
+        images: ["/projects/poker-game/poker-game.png", "/projects/poker-game/poker-game-2.png"],
         githubUrl: "https://github.com/AJSmyth/poker",
         liveUrl: null,
         period: "Mar 2022 - Jun 2022"
@@ -24,7 +24,7 @@ const projects = [
         title: "Space Hell Game",
         description: "A classic bullet hell shooter game set in deep space. Players face increasingly difficult waves of enemies and projectiles, testing reflexes and strategic skills through countless obstacles.",
         tech: ["C++", "SFML", "Game Development", "GitHub", "Microsoft Visual Studio Code"],
-        images: ["/projects/space-hell/spacehell.gif", "/projects/spacehell-2.png"],
+        images: ["/projects/space-hell/spacehell.gif", "/projects/space-hell/spacehell-2.png"],
         githubUrl: "https://github.com/iankuys/Space-Hell",
         liveUrl: null,
         period: "Jan 2021 - Mar 2021"
