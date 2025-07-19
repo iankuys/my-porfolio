@@ -45,47 +45,58 @@ function About() {
     }, []);
 
     return (
-        <section id="about" className="py-20 bg-white">
+        <section id="about" className="py-24 bg-primary">
             <div className="container mx-auto px-4">
-                <h2 className="text-3xl font-bold mb-12 text-center reveal">About Me</h2>
+                <div className="text-center mb-16">
+                    <h2 className="text-3xl md:text-4xl font-semibold text-primary mb-4 reveal">About Me</h2>
+                    <p className="text-muted text-lg max-w-2xl mx-auto">
+                        Passionate about creating digital solutions that make a difference
+                    </p>
+                </div>
 
-                <div className="flex flex-col md:flex-row gap-12">
-                    <div className="md:w-1/2 reveal">
-                        <h3 className="text-xl font-semibold mb-4">Who I Am</h3>
-                        <p className="text-gray-700 mb-4">
-                            I'm a passionate software engineer with 5+ years of experience building web applications.
-                            I love solving complex problems and creating intuitive, user-friendly interfaces.
-                        </p>
-                        <p className="text-gray-700 mb-4">
-                            My journey began with a Computer Science degree, but my curiosity and love for learning
-                            have led me to continuously expand my skills across various technologies and frameworks.
-                        </p>
-                        <p className="text-gray-700">
-                            When I'm not coding, you can find me hiking, reading tech blogs, or contributing to
-                            open-source projects. I believe in creating software that makes a positive impact.
-                        </p>
+                <div className="flex flex-col lg:flex-row gap-12 max-w-6xl mx-auto">
+                    <div className="lg:w-1/2 reveal">
+                        <div className="card-modern p-8 h-full">
+                            <h3 className="text-xl font-semibold mb-6 text-primary">Who I Am</h3>
+                            <div className="space-y-4 text-secondary leading-relaxed">
+                                <p>
+                                    I'm a passionate software engineer with 5+ years of experience building web applications.
+                                    I love solving complex problems and creating intuitive, user-friendly interfaces.
+                                </p>
+                                <p>
+                                    My journey began with a Computer Science degree, but my curiosity and love for learning
+                                    have led me to continuously expand my skills across various technologies and frameworks.
+                                </p>
+                                <p>
+                                    When I'm not coding, you can find me hiking, reading tech blogs, or contributing to
+                                    open-source projects. I believe in creating software that makes a positive impact.
+                                </p>
+                            </div>
+                        </div>
                     </div>
 
-                    <div id="skills-section" className="md:w-1/2 reveal">
-                        <h3 className="text-xl font-semibold mb-6">My Skills</h3>
-                        <div className="space-y-4">
-                            {skills.map((skill, index) => (
-                                <div key={skill.name} className={`transition-all duration-500 ${index > 0 ? 'delay-' + (index * 200) : ''}`}>
-                                    <div className="flex justify-between mb-1">
-                                        <span className="font-medium">{skill.name}</span>
-                                        <span className="text-gray-500">{skill.level}%</span>
+                    <div id="skills-section" className="lg:w-1/2 reveal">
+                        <div className="card-modern p-8 h-full">
+                            <h3 className="text-xl font-semibold mb-6 text-primary">Technical Skills</h3>
+                            <div className="space-y-6">
+                                {skills.map((skill, index) => (
+                                    <div key={skill.name} className={`transition-all duration-500 ${index > 0 ? 'delay-' + (index * 200) : ''}`}>
+                                        <div className="flex justify-between mb-2">
+                                            <span className="font-medium text-secondary">{skill.name}</span>
+                                            <span className="text-muted font-mono text-sm">{skill.level}%</span>
+                                        </div>
+                                        <div className="w-full bg-border-light rounded-full h-2 overflow-hidden">
+                                            <div
+                                                className="bg-gradient-to-r from-accent to-accent-light h-2 rounded-full transition-all duration-1000 ease-out"
+                                                style={{
+                                                    width: animated[skill.name] ? `${skill.level}%` : '0%',
+                                                    transitionDelay: `${index * 100}ms`
+                                                }}
+                                            />
+                                        </div>
                                     </div>
-                                    <div className="w-full bg-gray-200 rounded-full h-2">
-                                        <div
-                                            className="bg-blue-600 h-2 rounded-full transition-all duration-1000 ease-out"
-                                            style={{
-                                                width: animated[skill.name] ? `${skill.level}%` : '0%',
-                                                transitionDelay: `${index * 100}ms`
-                                            }}
-                                        />
-                                    </div>
-                                </div>
-                            ))}
+                                ))}
+                            </div>
                         </div>
                     </div>
                 </div>

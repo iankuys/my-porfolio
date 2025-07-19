@@ -31,74 +31,26 @@ function Contact() {
             <div className="container mx-auto px-4">
                 <h2 className="text-3xl font-bold mb-12 text-center">Get In Touch</h2>
 
-                <div className="flex flex-col md:flex-row gap-12">
+                <div className="flex flex-col md:flex-row gap-12 align-center justify-center">
                     <div className="md:w-1/2">
-                        <h3 className="text-xl font-semibold mb-6">Contact Information</h3>
                         <p className="text-gray-700 mb-8">
                             Feel free to reach out if you're looking for a developer, have a question,
                             or just want to connect.
                         </p>
 
                         <div className="space-y-4">
-                            <a href="mailto:johndoe@example.com" className="flex items-center text-gray-700 hover:text-blue-600 transition">
+                            <a href="mailto:iankuyisien@gmail.com" className="flex items-center text-gray-700 hover:text-blue-600 transition">
                                 <Mail size={20} className="mr-3" />
-                                <span>johndoe@example.com</span>
+                                <span>iankuyisien@gmail.com</span>
                             </a>
-                            <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="flex items-center text-gray-700 hover:text-blue-600 transition">
+                            <a href="https://github.com/iankuys" target="_blank" rel="noopener noreferrer" className="flex items-center text-gray-700 hover:text-blue-600 transition">
                                 <Code size={20} className="mr-3" />
-                                <span>github.com/johndoe</span>
+                                <span>github.com/iankuys</span>
                             </a>
-                            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="flex items-center text-gray-700 hover:text-blue-600 transition">
+                            <a href="https://linkedin.com/ian-ku-yi-sien" target="_blank" rel="noopener noreferrer" className="flex items-center text-gray-700 hover:text-blue-600 transition">
                                 <User size={20} className="mr-3" />
-                                <span>linkedin.com/in/johndoe</span>
+                                <span>linkedin.com/in/ian-ku-yi-sien</span>
                             </a>
-                        </div>
-                    </div>
-
-                    <div className="md:w-1/2">
-                        <div className="bg-white p-6 rounded-lg shadow">
-                            <div className="mb-4">
-                                <label htmlFor="name" className="block text-gray-700 font-medium mb-2">Name</label>
-                                <input
-                                    type="text"
-                                    id="name"
-                                    name="name"
-                                    value={formData.name}
-                                    onChange={handleChange}
-                                    className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600"
-                                />
-                            </div>
-
-                            <div className="mb-4">
-                                <label htmlFor="email" className="block text-gray-700 font-medium mb-2">Email</label>
-                                <input
-                                    type="email"
-                                    id="email"
-                                    name="email"
-                                    value={formData.email}
-                                    onChange={handleChange}
-                                    className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600"
-                                />
-                            </div>
-
-                            <div className="mb-6">
-                                <label htmlFor="message" className="block text-gray-700 font-medium mb-2">Message</label>
-                                <textarea
-                                    id="message"
-                                    name="message"
-                                    value={formData.message}
-                                    onChange={handleChange}
-                                    rows="5"
-                                    className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600"
-                                />
-                            </div>
-
-                            <button
-                                onClick={handleSubmit}
-                                className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 rounded-md transition"
-                            >
-                                Send Message
-                            </button>
                         </div>
                     </div>
                 </div>

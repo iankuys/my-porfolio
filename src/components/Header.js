@@ -9,20 +9,20 @@ function Header({ activeSection, isMenuOpen, setIsMenuOpen }) {
     ];
 
     return (
-        <header className="fixed top-0 w-full bg-white shadow-md z-50">
+        <header className="fixed top-0 w-full bg-primary/95 backdrop-blur-md border-b border-light z-50">
             <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-                <div className="text-xl font-bold text-blue-600">
-                    <a href="#home">John Doe</a>
+                <div className="text-xl font-semibold text-primary">
+                    <a href="#home" className="font-mono">Ian Ku<span className="text-accent">.</span></a>
                 </div>
 
                 {/* Mobile Menu Button */}
                 <button
-                    className="md:hidden p-2"
+                    className="md:hidden p-2 text-secondary hover:text-primary transition-colors"
                     onClick={() => setIsMenuOpen(!isMenuOpen)}
                 >
-                    <div className="w-6 h-0.5 bg-gray-600 mb-1"></div>
-                    <div className="w-6 h-0.5 bg-gray-600 mb-1"></div>
-                    <div className="w-6 h-0.5 bg-gray-600"></div>
+                    <div className={`w-6 h-0.5 bg-current mb-1.5 transition-transform ${isMenuOpen ? 'rotate-45 translate-y-2' : ''}`}></div>
+                    <div className={`w-6 h-0.5 bg-current mb-1.5 transition-opacity ${isMenuOpen ? 'opacity-0' : ''}`}></div>
+                    <div className={`w-6 h-0.5 bg-current transition-transform ${isMenuOpen ? '-rotate-45 -translate-y-2' : ''}`}></div>
                 </button>
 
                 {/* Desktop Navigation */}
@@ -32,9 +32,16 @@ function Header({ activeSection, isMenuOpen, setIsMenuOpen }) {
                             <li key={link.name}>
                                 <a
                                     href={link.href}
-                                    className={`hover:text-blue-600 transition ${activeSection === link.href.slice(1) ? 'text-blue-600 font-semibold' : ''}`}
+                                    className={`text-sm font-medium transition-colors hover:text-accent relative ${
+                                        activeSection === link.href.slice(1) 
+                                            ? 'text-accent' 
+                                            : 'text-secondary hover:text-primary'
+                                    }`}
                                 >
                                     {link.name}
+                                    {activeSection === link.href.slice(1) && (
+                                        <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-accent rounded-full"></span>
+                                    )}
                                 </a>
                             </li>
                         ))}
@@ -44,13 +51,17 @@ function Header({ activeSection, isMenuOpen, setIsMenuOpen }) {
 
             {/* Mobile Navigation */}
             {isMenuOpen && (
-                <nav className="md:hidden bg-white py-4 px-4 shadow-lg">
-                    <ul className="flex flex-col space-y-4">
+                <nav className="md:hidden bg-primary/95 backdrop-blur-md border-t border-light">
+                    <ul className="flex flex-col py-4">
                         {navLinks.map(link => (
                             <li key={link.name}>
                                 <a
                                     href={link.href}
-                                    className={`block py-2 hover:text-blue-600 transition ${activeSection === link.href.slice(1) ? 'text-blue-600 font-semibold' : ''}`}
+                                    className={`block px-4 py-3 text-sm font-medium transition-colors ${
+                                        activeSection === link.href.slice(1) 
+                                            ? 'text-accent bg-accent-soft' 
+                                            : 'text-secondary hover:text-primary hover:bg-accent-soft'
+                                    }`}
                                     onClick={() => setIsMenuOpen(false)}
                                 >
                                     {link.name}

@@ -1,45 +1,50 @@
 // Hero Section
 function Hero({ isLoaded }) {
     return (
-        <section id="home" className="pt-32 pb-20 bg-gradient-to-r from-blue-50 to-indigo-50 overflow-hidden">
+        <section id="home" className="pt-32 pb-24 gradient-primary overflow-hidden">
             <div className="container mx-auto px-4 flex flex-col md:flex-row items-center">
-                <div className={`md:w-1/2 mb-10 md:mb-0 ${isLoaded ? 'animate-slideInLeft' : 'opacity-0'}`}>
-                    <h1 className="text-4xl md:text-5xl font-bold mb-4">
-                        Hi, I'm <span className="text-blue-600">Ian Ku</span>
+                <div className={`md:w-1/2 mb-12 md:mb-0 ${isLoaded ? 'animate-slideInLeft' : 'opacity-0'}`}>
+                    <div className="mb-6">
+                        <span className="text-accent font-mono text-sm font-medium tracking-wide">
+                            Hello, I'm
+                        </span>
+                    </div>
+                    <h1 className="text-4xl md:text-6xl font-semibold mb-6 text-primary leading-tight">
+                        Ian Ku<span className="text-accent">.</span>
                     </h1>
-                    <h2 className={`text-xl md:text-2xl text-gray-700 mb-6 ${isLoaded ? 'animate-fadeIn delay-200' : 'opacity-0'}`}>
-                        Software Engineer <br />
-                        <span className='text-lg text-alt-blue font-bold'>&</span> <br />
-                        Full-Stack Developer <br />
-                        <span className='text-lg text-alt-blue font-bold'>&</span> <br />
-                        DevOps Engineer <br />
+                    <h2 className={`text-xl md:text-2xl text-secondary mb-8 leading-relaxed ${isLoaded ? 'animate-fadeIn delay-200' : 'opacity-0'}`}>
+                        <span className="font-medium">Software Engineer</span> & <br />
+                        <span className="font-medium">DevOps Engineer</span>
                     </h2>
-                    <p className={`text-lg text-gray-600 mb-8 ${isLoaded ? 'animate-fadeIn delay-400' : 'opacity-0'}`}>
-                        I build exceptional digital experiences with clean, efficient code.
-                        Specializing in frontend development and UI/UX design.
+                    <p className={`text-lg text-muted mb-10 leading-relaxed ${isLoaded ? 'animate-fadeIn delay-400' : 'opacity-0'}`}>
+                        I craft exceptional digital experiences with clean, efficient code.
+                        Passionate about building scalable solutions and beautiful user interfaces.
                     </p>
-                    <div className={`flex space-x-4 ${isLoaded ? 'animate-fadeIn delay-600' : 'opacity-0'}`}>
+                    <div className={`flex flex-col sm:flex-row gap-4 ${isLoaded ? 'animate-fadeIn delay-600' : 'opacity-0'}`}>
                         <a
                             href="#contact"
-                            className="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-6 rounded-md transition hover:scale-105"
+                            className="btn-primary hover-lift text-center"
                         >
-                            Contact Me
+                            Get In Touch
                         </a>
                         <a
                             href="#projects"
-                            className="bg-white hover:bg-gray-100 text-blue-600 font-medium py-2 px-6 rounded-md border border-blue-600 transition hover:scale-105"
+                            className="btn-secondary hover-lift text-center"
                         >
-                            See My Work
+                            View My Work
                         </a>
                     </div>
                 </div>
                 <div className={`md:w-1/2 flex justify-center ${isLoaded ? 'animate-slideInRight' : 'opacity-0'}`}>
-                    <div className="w-64 h-64 rounded-full bg-blue-600 flex items-center justify-center overflow-hidden animate-pulse">
-                        <img
-                            src="/api/placeholder/400/400"
-                            alt="John Doe"
-                            className="w-full h-full object-cover"
-                        />
+                    <div className="relative">
+                        <div className="w-72 h-72 rounded-2xl bg-accent-soft flex items-center justify-center overflow-hidden hover-lift">
+                            <div className="w-64 h-64 rounded-xl bg-gradient-to-br from-accent to-accent-light flex items-center justify-center">
+                                <img src="/Ian_KU_hs.jpg" alt="Ian Ku" className="w-full h-full object-cover rounded-lg" />
+                            </div>
+                        </div>
+                        {/* Decorative elements */}
+                        <div className="absolute -top-4 -right-4 w-8 h-8 bg-accent rounded-full opacity-20"></div>
+                        <div className="absolute -bottom-4 -left-4 w-6 h-6 bg-accent rounded-full opacity-30"></div>
                     </div>
                 </div>
             </div>
