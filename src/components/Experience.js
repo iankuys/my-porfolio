@@ -16,7 +16,7 @@ function Experience() {
         },
         {
             title: "Software Programmer",
-            company: "UCI MIND (UC Irvine Institute for Memory Impairments and Neurological Disorders)",
+            company: "UCI MIND",
             location: "Irvine, California",
             period: "November 2022 - March 2024",
             description: "Developed a Dockerized patient statistics web application with Vue.js, JavaScript, Git, and Python Flask backend. Built and used tissue repository web application using R and Shiny and Git with our PostgreSQL database. Developed full-stack C2C video survey application in Bootstrap 5, JavaScript, and Python using FastAPI and Flask.",
