@@ -88,7 +88,7 @@ function Hero({ isLoaded }) {
             }}></div>
             
             <div className="container mx-auto px-4 flex flex-col md:flex-row items-center safe-content">
-                <div className={`md:w-1/2 mb-12 md:mb-0 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
+                <div className={`flex flex-col md:w-1/2 mb-12 md:mb-0 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
                     <div className="mb-6">
                         <span className="font-code text-sm tracking-wide pulse-accent">
                             $ whoami
