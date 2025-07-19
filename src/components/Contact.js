@@ -86,20 +86,23 @@ function Contact() {
                                 href="/resume.pdf"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="px-8 py-4 text-white font-semibold rounded-xl transition-all duration-300 hover:scale-105 relative overflow-hidden group flex items-center justify-center gap-3 border border-accent/50 hover:border-accent/70"
+                                className="px-8 py-4 text-white font-semibold rounded-xl transition-all duration-300 hover:scale-105 flex items-center justify-center gap-3"
                                 style={{
                                     background: 'rgba(10, 10, 10, 0.9)',
+                                    border: '1px solid rgba(0, 212, 255, 0.5)',
                                     boxShadow: '0 0 25px rgba(0, 212, 255, 0.6), 0 0 50px rgba(0, 212, 255, 0.4)',
                                 }}
                                 onMouseEnter={(e) => {
+                                    e.target.style.border = '1px solid rgba(0, 212, 255, 0.7)';
                                     e.target.style.boxShadow = '0 0 35px rgba(0, 212, 255, 0.8), 0 0 70px rgba(0, 212, 255, 0.5)';
                                 }}
                                 onMouseLeave={(e) => {
+                                    e.target.style.border = '1px solid rgba(0, 212, 255, 0.5)';
                                     e.target.style.boxShadow = '0 0 25px rgba(0, 212, 255, 0.6), 0 0 50px rgba(0, 212, 255, 0.4)';
                                 }}
                             >
-                                <Download size={20} className="relative z-10" />
-                                <span className="relative z-10">Download Resume</span>
+                                <Download size={20} />
+                                <span>Download Resume</span>
                             </a>
                         </div>
                     </div>

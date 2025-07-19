@@ -159,6 +159,18 @@ html {
     background-color: var(--color-bg-accent);
   }
   
+  .bg-accent {
+    background-color: var(--color-accent);
+  }
+  
+  .bg-purple {
+    background-color: var(--color-purple);
+  }
+  
+  .bg-green {
+    background-color: var(--color-green);
+  }
+  
   .border-soft {
     border-color: var(--color-border);
   }
@@ -224,6 +236,21 @@ html {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+  }
+  
+  /* Gradient from/to classes */
+  .from-accent {
+    --tw-gradient-from: var(--color-accent);
+    --tw-gradient-to: transparent;
+    --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+  }
+  
+  .to-purple {
+    --tw-gradient-to: var(--color-purple);
+  }
+  
+  .to-purple-light {
+    --tw-gradient-to: var(--color-purple-light);
   }
   
   /* Liquid glass effects */

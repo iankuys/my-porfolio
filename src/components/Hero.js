@@ -88,7 +88,7 @@ function Hero({ isLoaded }) {
             }}></div>
             
             <div className="container mx-auto px-4 flex flex-col md:flex-row items-center safe-content">
-                <div className={`md:w-1/2 mb-12 md:mb-0 ${isLoaded ? 'animate-slideInLeft' : 'opacity-0'}`}>
+                <div className={`md:w-1/2 mb-12 md:mb-0 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
                     <div className="mb-6">
                         <span className="font-code text-sm tracking-wide pulse-accent">
                             $ whoami
@@ -97,14 +97,14 @@ function Hero({ isLoaded }) {
                     <h1 className="text-4xl md:text-6xl font-bold mb-6 text-primary leading-tight">
                         Ian Ku<span className="gradient-text">.</span>
                     </h1>
-                    <h2 className={`text-xl md:text-2xl text-secondary mb-8 leading-relaxed ${isLoaded ? 'animate-fadeIn delay-200' : 'opacity-0'}`}>
+                    <h2 className={`text-xl md:text-2xl text-secondary mb-8 leading-relaxed ${isLoaded ? 'opacity-100 delay-200' : 'opacity-0'}`}>
                         <span className="font-medium text-accent">Software Engineer</span> & <span className="font-medium text-purple">DevOps Engineer</span>
                     </h2>
-                    <p className={`text-lg text-muted mb-10 leading-relaxed ${isLoaded ? 'animate-fadeIn delay-400' : 'opacity-0'}`}>
+                    <p className={`text-lg text-muted mb-10 leading-relaxed ${isLoaded ? 'opacity-100 delay-400' : 'opacity-0'}`}>
                         I craft <span className="text-accent font-medium">exceptional digital experiences</span> with clean, efficient code.
                         Passionate about building <span className="text-green font-medium">scalable solutions</span> and beautiful user interfaces.
                     </p>
-                    <div className={`flex flex-col md:flex-row gap-4 justify-start md:justify-center ${isLoaded ? 'animate-fadeIn delay-600' : 'opacity-0'}`}>
+                    <div className={`flex flex-col md:flex-row gap-4 justify-start md:justify-center ${isLoaded ? 'opacity-100 delay-600' : 'opacity-0'}`}>
                         <a
                             href="#contact"
                             className="btn-primary hover-lift hover-glow text-center"
@@ -119,17 +119,13 @@ function Hero({ isLoaded }) {
                         </a>
                     </div>
                 </div>
-                <div className={`md:w-1/2 flex justify-center ${isLoaded ? 'animate-slideInRight' : 'opacity-0'}`}>
+                <div className={`md:w-1/2 flex justify-center ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
                     <div className="relative">
                         <div className="w-72 h-72 liquid-glass hover-glow float overflow-hidden">
                             <div className="w-full h-full rounded-2xl bg-gradient-to-br from-accent to-purple-light flex items-center justify-center p-2">
                                 <img src="/Ian_KU_hs.jpg" alt="Ian Ku" className="w-full h-full object-cover rounded-xl" />
                             </div>
                         </div>
-                        {/* Enhanced decorative elements */}
-                        <div className="absolute -top-4 -right-4 w-8 h-8 bg-accent rounded-full opacity-30 pulse-accent"></div>
-                        <div className="absolute -bottom-4 -left-4 w-6 h-6 bg-purple rounded-full opacity-40 pulse-accent" style={{ animationDelay: '1s' }}></div>
-                        <div className="absolute top-1/2 -left-8 w-4 h-4 bg-green rounded-full opacity-25 pulse-accent" style={{ animationDelay: '2s' }}></div>
                     </div>
                 </div>
             </div>

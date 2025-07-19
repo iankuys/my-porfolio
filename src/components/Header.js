@@ -52,19 +52,22 @@ function Header({ activeSection, isMenuOpen, setIsMenuOpen }) {
                         href="/resume.pdf"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="ml-8 px-5 py-2.5 text-sm font-medium text-white rounded-lg transition-all duration-300 hover:scale-105 relative overflow-hidden group border border-accent/40 hover:border-accent/60"
+                        className="ml-8 px-5 py-2.5 text-sm font-medium text-white rounded-lg transition-all duration-300 hover:scale-105"
                         style={{
                             background: 'rgba(10, 10, 10, 0.8)',
+                            border: '1px solid rgba(0, 212, 255, 0.4)',
                             boxShadow: '0 0 20px rgba(0, 212, 255, 0.5), 0 0 40px rgba(0, 212, 255, 0.3)',
                         }}
                         onMouseEnter={(e) => {
+                            e.target.style.border = '1px solid rgba(0, 212, 255, 0.6)';
                             e.target.style.boxShadow = '0 0 30px rgba(0, 212, 255, 0.7), 0 0 60px rgba(0, 212, 255, 0.4)';
                         }}
                         onMouseLeave={(e) => {
+                            e.target.style.border = '1px solid rgba(0, 212, 255, 0.4)';
                             e.target.style.boxShadow = '0 0 20px rgba(0, 212, 255, 0.5), 0 0 40px rgba(0, 212, 255, 0.3)';
                         }}
                     >
-                        <span className="relative z-10">Resume</span>
+                        Resume
                     </a>
                 </nav>
             </div>
@@ -93,20 +96,23 @@ function Header({ activeSection, isMenuOpen, setIsMenuOpen }) {
                                 href="/resume.pdf"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="block px-5 py-3 text-sm font-medium text-white rounded-lg transition-all text-center hover:scale-105 relative overflow-hidden group border border-accent/40 hover:border-accent/60"
+                                className="block px-5 py-3 text-sm font-medium text-white rounded-lg transition-all text-center hover:scale-105"
                                 style={{
                                     background: 'rgba(10, 10, 10, 0.8)',
+                                    border: '1px solid rgba(0, 212, 255, 0.4)',
                                     boxShadow: '0 0 20px rgba(0, 212, 255, 0.5), 0 0 40px rgba(0, 212, 255, 0.3)',
                                 }}
                                 onMouseEnter={(e) => {
+                                    e.target.style.border = '1px solid rgba(0, 212, 255, 0.6)';
                                     e.target.style.boxShadow = '0 0 30px rgba(0, 212, 255, 0.7), 0 0 60px rgba(0, 212, 255, 0.4)';
                                 }}
                                 onMouseLeave={(e) => {
+                                    e.target.style.border = '1px solid rgba(0, 212, 255, 0.4)';
                                     e.target.style.boxShadow = '0 0 20px rgba(0, 212, 255, 0.5), 0 0 40px rgba(0, 212, 255, 0.3)';
                                 }}
                                 onClick={() => setIsMenuOpen(false)}
                             >
-                                <span className="relative z-10">Resume</span>
+                                Resume
                             </a>
                         </li>
                     </ul>
