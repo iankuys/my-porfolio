@@ -83,7 +83,7 @@ function Contact() {
                                 Send Email
                             </a>
                             <a 
-                                href="/resume.pdf"
+                                href="/ianku/resume.pdf"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="px-8 py-4 text-white font-semibold rounded-xl transition-all duration-300 hover:scale-105 flex items-center justify-center gap-3"

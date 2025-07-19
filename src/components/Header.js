@@ -49,7 +49,7 @@ function Header({ activeSection, isMenuOpen, setIsMenuOpen }) {
                     
                     {/* Resume Button */}
                     <a
-                        href="/resume.pdf"
+                        href="/ianku/resume.pdf"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="ml-8 px-5 py-2.5 text-sm font-medium text-white rounded-lg transition-all duration-300 hover:scale-105"
@@ -93,7 +93,7 @@ function Header({ activeSection, isMenuOpen, setIsMenuOpen }) {
                         ))}
                         <li className="px-4 py-2">
                             <a
-                                href="/resume.pdf"
+                                href="/ianku/resume.pdf"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="block px-5 py-3 text-sm font-medium text-white rounded-lg transition-all text-center hover:scale-105"
