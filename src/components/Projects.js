@@ -1,40 +1,43 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Code, ExternalLink, ChevronLeft, ChevronRight, X } from 'lucide-react';
+
+const projects = [
+    {
+        title: "Computer Vision Smart Curtains",
+        description: "An automated, remote-controlled curtains project with web application and firmware developed for UC Irvine. Features computer vision capabilities for intelligent automation.",
+        tech: ["Python", "Flask", "Raspberry Pi", "Computer Vision", "OpenCV", "JavaScript"],
+        images: ["/cv-curtains-2.gif", "/cv-curtains.gif"],
+        githubUrl: "https://github.com/iankuys/cv_automated_curtains",
+        liveUrl: null,
+        period: "Mar 2022 - Jun 2022"
+    },
+    {
+        title: "Online Poker Game",
+        description: "A real-time, turn-based online poker game built in C using GTK for a sleek and responsive frontend. Features multiplayer functionality through sockets for seamless online play.",
+        tech: ["C", "GTK+", "Game Programming", "Git", "Sockets"],
+        images: ["/poker-game.png", "/poker-game-2.png"],
+        githubUrl: "https://github.com/AJSmyth/poker",
+        liveUrl: null,
+        period: "Mar 2022 - Jun 2022"
+    },
+    {
+        title: "Space Hell Game",
+        description: "A classic bullet hell shooter game set in deep space. Players face increasingly difficult waves of enemies and projectiles, testing reflexes and strategic skills through countless obstacles.",
+        tech: ["C++", "SFML", "Game Development", "GitHub", "Microsoft Visual Studio Code"],
+        images: ["/spacehell.gif", "/spacehell-2.png"],
+        githubUrl: "https://github.com/iankuys/Space-Hell",
+        liveUrl: null,
+        period: "Jan 2021 - Mar 2021"
+    }
+];
 
 function Projects() {
     const [expandedProject, setExpandedProject] = useState(null);
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
     const [cardImageIndexes, setCardImageIndexes] = useState({});
-
-    const projects = [
-        {
-            title: "Computer Vision Smart Curtains",
-            description: "An automated, remote-controlled curtains project with web application and firmware developed for UC Irvine. Features computer vision capabilities for intelligent automation.",
-            tech: ["Python", "Flask", "Raspberry Pi", "Computer Vision", "OpenCV", "JavaScript"],
-            images: ["cv-curtains-2.gif", "/cv-curtains.gif"],
-            githubUrl: "https://github.com/iankuys/cv_automated_curtains",
-            liveUrl: null,
-            period: "Mar 2022 - Jun 2022"
-        },
-        {
-            title: "Online Poker Game",
-            description: "A real-time, turn-based online poker game built in C using GTK for a sleek and responsive frontend. Features multiplayer functionality through sockets for seamless online play.",
-            tech: ["C", "GTK+", "Game Programming", "Git", "Sockets"],
-            images: ["/poker-game.png", "/poker-game-2.png"],
-            githubUrl: "https://github.com/AJSmyth/poker",
-            liveUrl: null,
-            period: "Mar 2022 - Jun 2022"
-        },
-        {
-            title: "Space Hell Game",
-            description: "A classic bullet hell shooter game set in deep space. Players face increasingly difficult waves of enemies and projectiles, testing reflexes and strategic skills through countless obstacles.",
-            tech: ["C++", "SFML", "Game Development", "GitHub", "Microsoft Visual Studio Code"],
-            images: ["/spacehell.gif", "/spacehell-2.png"],
-            githubUrl: "https://github.com/iankuys/Space-Hell",
-            liveUrl: null,
-            period: "Jan 2021 - Mar 2021"
-        }
-    ];
+    const [isTransitioning, setIsTransitioning] = useState(false);
+    const [transitioningCard, setTransitioningCard] = useState(null);
+    const [preloadedImages, setPreloadedImages] = useState(new Set());
 
     const openGallery = (projectIndex) => {
         setExpandedProject(projectIndex);
@@ -48,36 +51,58 @@ function Projects() {
 
     const nextImage = () => {
         if (expandedProject !== null) {
-            setCurrentImageIndex((prev) =>
-                (prev + 1) % projects[expandedProject].images.length
-            );
+            setIsTransitioning(true);
+            setTimeout(() => {
+                setCurrentImageIndex((prev) =>
+                    (prev + 1) % projects[expandedProject].images.length
+                );
+                setIsTransitioning(false);
+            }, 150);
         }
     };
 
     const prevImage = () => {
         if (expandedProject !== null) {
-            setCurrentImageIndex((prev) =>
-                prev === 0 ? projects[expandedProject].images.length - 1 : prev - 1
-            );
+            setIsTransitioning(true);
+            setTimeout(() => {
+                setCurrentImageIndex((prev) =>
+                    prev === 0 ? projects[expandedProject].images.length - 1 : prev - 1
+                );
+                setIsTransitioning(false);
+            }, 150);
         }
     };
 
     const nextCardImage = (projectIndex, e) => {
         e.stopPropagation();
-        setCardImageIndexes(prev => ({
-            ...prev,
-            [projectIndex]: ((prev[projectIndex] || 0) + 1) % projects[projectIndex].images.length
-        }));
+        if (transitioningCard === projectIndex) return; // Prevent multiple clicks
+        
+        setTransitioningCard(projectIndex);
+        
+        setTimeout(() => {
+            setCardImageIndexes(prev => ({
+                ...prev,
+                [projectIndex]: ((prev[projectIndex] || 0) + 1) % projects[projectIndex].images.length
+            }));
+            setTransitioningCard(null);
+        }, 250);
     };
 
     const prevCardImage = (projectIndex, e) => {
         e.stopPropagation();
-        setCardImageIndexes(prev => ({
-            ...prev,
-            [projectIndex]: (prev[projectIndex] || 0) === 0 ?
-                projects[projectIndex].images.length - 1 :
-                (prev[projectIndex] || 0) - 1
-        }));
+        if (transitioningCard === projectIndex) return; // Prevent multiple clicks
+        
+        setTransitioningCard(projectIndex);
+        
+        setTimeout(() => {
+            setCardImageIndexes(prev => ({
+                ...prev,
+                [projectIndex]: (prev[projectIndex] || 0) === 0 ?
+                    projects[projectIndex].images.length - 1 :
+                    (prev[projectIndex] || 0) - 1
+            }));
+            setTransitioningCard(null);
+        }, 250);
     };
 
     const getCurrentCardImage = (projectIndex) => {
@@ -85,6 +110,31 @@ function Projects() {
     };
 
     const [hoveredProject, setHoveredProject] = useState(null);
+
+    // Preload all project images for smooth transitions
+    useEffect(() => {
+        const preloadImages = () => {
+            const allImages = projects.flatMap(project => project.images);
+            let loadedCount = 0;
+            
+            allImages.forEach(imageSrc => {
+                if (!imageSrc.includes('/api/placeholder')) {
+                    const img = new Image();
+                    img.onload = () => {
+                        loadedCount++;
+                        setPreloadedImages(prev => new Set([...prev, imageSrc]));
+                        console.log(`Loaded image: ${imageSrc} (${loadedCount}/${allImages.length})`);
+                    };
+                    img.onerror = () => {
+                        console.error(`Failed to load image: ${imageSrc}`);
+                    };
+                    img.src = imageSrc;
+                }
+            });
+        };
+
+        preloadImages();
+    }, []);
 
     return (
         <section id="projects" className="py-20 bg-secondary safe-container">
@@ -106,7 +156,7 @@ function Projects() {
                     {projects.map((project, index) => (
                         <div
                             key={index}
-                            className="liquid-glass hover-glow transition-all duration-500 flex flex-col h-full w-full overflow-hidden"
+                            className="liquid-glass hover-glow transition-all duration-500 ease-out flex flex-col h-full w-full overflow-hidden"
                             style={{
                                 transform: hoveredProject === index ? 'scale(1.02)' : 'scale(1)',
                                 minHeight: '700px',
@@ -136,8 +186,15 @@ function Projects() {
                                     <img
                                         src={project.images[getCurrentCardImage(index)]}
                                         alt={project.title}
-                                        className="w-full h-full object-cover transition-transform duration-700"
-                                        style={{ transform: hoveredProject === index ? 'scale(1.1)' : 'scale(1)' }}
+                                        className="w-full h-full object-cover transition-all duration-300 ease-in-out"
+                                        style={{ 
+                                            opacity: transitioningCard === index ? 0.3 : 1,
+                                            transform: transitioningCard === index 
+                                                ? 'scale(0.95)' 
+                                                : hoveredProject === index ? 'scale(1.1)' : 'scale(1)',
+                                            filter: transitioningCard === index ? 'blur(1px)' : 'blur(0px)'
+                                        }}
+                                        onLoad={() => console.log(`Image loaded: ${project.images[getCurrentCardImage(index)]}`)}
                                     />
                                 )}
 
@@ -315,11 +372,13 @@ function Projects() {
                                     <img
                                         src={projects[expandedProject].images[currentImageIndex]}
                                         alt={`${projects[expandedProject].title} screenshot ${currentImageIndex + 1}`}
-                                        className="w-full rounded-lg"
+                                        className="w-full rounded-lg transition-all duration-300"
                                         style={{
                                             height: 'auto',
                                             maxHeight: '24rem',
-                                            objectFit: 'contain'
+                                            objectFit: 'contain',
+                                            opacity: isTransitioning ? 0.3 : 1,
+                                            transform: isTransitioning ? 'scale(0.95)' : 'scale(1)'
                                         }}
                                     />
                                 )}
@@ -358,7 +417,7 @@ function Projects() {
                                 )}
                             </div>
 
-                            <div style={{ marginTop: '1.5rem' }} className="text-white">
+                            <div style={{ marginTop: '1.5rem' }} className="text-white flex flex-col items-center justify-center">
                                 <h3 className="text-2xl font-bold mb-2">{projects[expandedProject].title}</h3>
                                 <p className="mb-4" style={{ color: '#d1d5db' }}>{projects[expandedProject].description}</p>
                                 <div className="flex flex-wrap gap-2 mb-4">
