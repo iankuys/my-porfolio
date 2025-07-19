@@ -1,9 +1,9 @@
 // Hero Section
 function Hero({ isLoaded }) {
     return (
-        <section id="home" className="pt-32 pb-24 bg-primary overflow-hidden relative">
+        <section id="home" className="pt-32 pb-24 bg-primary safe-container">
             {/* Starfield Background */}
-            <div className="absolute inset-0">
+            <div className="safe-background">
                 {/* Random colored stars - Layer 1 */}
                 <div className="absolute inset-0" style={{
                     background: `
@@ -87,7 +87,7 @@ function Hero({ isLoaded }) {
                 animation: 'twinkle 4s ease-in-out infinite alternate'
             }}></div>
             
-            <div className="container mx-auto px-4 flex flex-col md:flex-row items-center relative z-10">
+            <div className="container mx-auto px-4 flex flex-col md:flex-row items-center safe-content">
                 <div className={`md:w-1/2 mb-12 md:mb-0 ${isLoaded ? 'animate-slideInLeft' : 'opacity-0'}`}>
                     <div className="mb-6">
                         <span className="font-code text-sm tracking-wide pulse-accent">

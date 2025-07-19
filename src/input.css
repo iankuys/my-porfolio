@@ -75,6 +75,33 @@ html {
 
 /* Custom utilities */
 @layer utilities {
+  /* Container and overflow fixes */
+  .safe-container {
+    overflow: hidden;
+    position: relative;
+    isolation: isolate;
+    /* Firefox-specific fixes */
+    contain: layout style paint;
+    will-change: transform;
+  }
+  
+  .safe-background {
+    overflow: hidden;
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    /* Firefox-specific containment */
+    contain: layout style paint;
+    transform: translateZ(0);
+  }
+  
+  .safe-content {
+    position: relative;
+    z-index: 10;
+    /* Firefox isolation fix */
+    transform: translateZ(0);
+  }
+  
   /* Enhanced dark theme utilities */
   .text-primary {
     color: var(--color-text-primary);
@@ -147,6 +174,27 @@ html {
   /* Typography improvements */
   .text-balance {
     text-wrap: balance;
+  }
+  
+  /* Firefox-specific animation fixes */
+  .float {
+    /* Force hardware acceleration in Firefox */
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+  }
+  
+  .pulse-accent {
+    /* Firefox containment for pulsing elements */
+    transform: translateZ(0);
+    contain: layout style paint;
+  }
+  
+  /* Firefox blur containment */
+  .blur-3xl, .blur-2xl {
+    /* Prevent blur bleeding in Firefox */
+    transform: translateZ(0);
+    will-change: transform, filter;
   }
   
   /* Enhanced gradients with dark theme */

@@ -49,15 +49,15 @@ function About() {
             <div className="container mx-auto px-4">
                 <div className="text-center mb-16">
                     <h2 className="text-3xl md:text-4xl font-semibold text-primary mb-4 reveal">About Me</h2>
-                    <p className="text-muted text-lg max-w-2xl mx-auto">
-                        Passionate about creating digital solutions that make a difference
+                    <p className="text-muted text-lg max-w-2xl mx-auto font-code">
+                        // Passionate about creating digital solutions that make a difference
                     </p>
                 </div>
 
                 <div className="flex flex-col lg:flex-row gap-12 max-w-6xl mx-auto">
                     <div className="lg:w-1/2 reveal">
                         <div className="card-modern p-8 h-full">
-                            <h3 className="text-xl font-semibold mb-6 text-primary">Who I Am</h3>
+                            <h3 className="text-muted text-lg max-w-2xl mx-auto font-code mb-6">Who I Am</h3>
                             <div className="space-y-4 text-secondary leading-relaxed">
                                 <p>
                                     I'm a passionate software engineer with 5+ years of experience building web applications.
@@ -77,7 +77,7 @@ function About() {
 
                     <div id="skills-section" className="lg:w-1/2 reveal">
                         <div className="card-modern p-8 h-full">
-                            <h3 className="text-xl font-semibold mb-6 text-primary">Technical Skills</h3>
+                            <h3 className="text-muted text-lg max-w-2xl mx-auto font-code mb-6">Technical Skills</h3>
                             <div className="space-y-6">
                                 {skills.map((skill, index) => (
                                     <div key={skill.name} className={`transition-all duration-500 ${index > 0 ? 'delay-' + (index * 200) : ''}`}>

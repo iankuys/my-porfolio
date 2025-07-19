@@ -3,16 +3,16 @@ import { Mail, Github, Linkedin, ExternalLink, MessageCircle } from 'lucide-reac
 // Contact Section
 function Contact() {
     return (
-        <section id="contact" className="py-24 bg-primary overflow-hidden relative">
+        <section id="contact" className="py-24 bg-primary safe-container">
             {/* Animated background elements */}
-            <div className="absolute inset-0">
-                <div className="absolute top-20 right-20 w-64 h-64 bg-purple opacity-5 rounded-full blur-3xl float"></div>
-                <div className="absolute bottom-20 left-20 w-80 h-80 bg-accent opacity-5 rounded-full blur-3xl float" style={{ animationDelay: '2s' }}></div>
-                <div className="absolute top-1/2 left-1/2 w-48 h-48 bg-green opacity-3 rounded-full blur-2xl pulse-accent"></div>
+            <div className="safe-background">
+                <div className="absolute top-20 right-20 w-64 h-64 bg-purple opacity-5 rounded-full blur-3xl float transform-gpu"></div>
+                <div className="absolute bottom-20 left-20 w-80 h-80 bg-accent opacity-5 rounded-full blur-3xl float transform-gpu" style={{ animationDelay: '2s' }}></div>
+                <div className="absolute top-1/2 left-1/2 w-48 h-48 bg-green opacity-3 rounded-full blur-2xl pulse-accent transform-gpu"></div>
             </div>
             
             {/* Grid pattern overlay */}
-            <div className="absolute inset-0 opacity-5">
+            <div className="safe-background opacity-5">
                 <div className="absolute inset-0" style={{
                     backgroundImage: `
                         linear-gradient(rgba(0, 212, 255, 0.1) 1px, transparent 1px),
@@ -22,7 +22,7 @@ function Contact() {
                 }}></div>
             </div>
 
-            <div className="container mx-auto px-4 relative z-10">
+            <div className="container mx-auto px-4 safe-content">
                 <div className="text-center mb-16">
                     <h2 className="text-4xl md:text-5xl font-bold mb-4 text-primary">
                         Let's <span className="gradient-text">Connect</span>

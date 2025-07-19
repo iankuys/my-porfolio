@@ -87,18 +87,18 @@ function Projects() {
     const [hoveredProject, setHoveredProject] = useState(null);
 
     return (
-        <section id="projects" className="py-20 bg-secondary relative overflow-hidden">
+        <section id="projects" className="py-20 bg-secondary safe-container">
             {/* Background decoration */}
-            <div className="absolute inset-0">
-                <div className="absolute top-10 right-20 w-64 h-64 bg-purple opacity-5 rounded-full blur-3xl"></div>
-                <div className="absolute bottom-20 left-20 w-80 h-80 bg-accent opacity-5 rounded-full blur-3xl"></div>
+            <div className="safe-background">
+                <div className="absolute top-10 right-20 w-64 h-64 bg-purple opacity-5 rounded-full blur-3xl transform-gpu float" style={{ willChange: 'transform', backfaceVisibility: 'hidden' }}></div>
+                <div className="absolute bottom-20 left-20 w-80 h-80 bg-accent opacity-5 rounded-full blur-3xl transform-gpu float" style={{ willChange: 'transform', backfaceVisibility: 'hidden' }}></div>
             </div>
             
-            <div className="container mx-auto px-4 relative z-10">
-                <h2 className="text-3xl font-bold mb-4 text-center text-primary">
+            <div className="container mx-auto px-4 safe-content">
+                <h2 className="text-4xl font-bold mb-4 text-center text-primary">
                     My <span className="gradient-text">Projects</span>
                 </h2>
-                <p className="text-center text-muted mb-12 font-code text-sm">
+                <p className="text-center text-muted mb-12 font-code text-md">
                     {`// Building innovative solutions with modern tech`}
                 </p>
 
@@ -109,7 +109,7 @@ function Projects() {
                             className="liquid-glass hover-glow transition-all duration-500 flex flex-col h-full w-full overflow-hidden"
                             style={{
                                 transform: hoveredProject === index ? 'scale(1.02)' : 'scale(1)',
-                                minHeight: '500px',
+                                minHeight: '700px',
                                 maxWidth: '380px'
                             }}
                             onMouseEnter={() => setHoveredProject(index)}
@@ -121,7 +121,7 @@ function Projects() {
                                 onClick={() => openGallery(index)}
                                 style={{
                                     position: 'relative',
-                                    height: '200px',
+                                    height: '300px',
                                     cursor: 'pointer'
                                 }}
                             >
