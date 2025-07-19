@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;500;600;700&display=swap');
 @import "tailwindcss";
 
 .App {
@@ -284,12 +285,32 @@ html {
     --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
   }
   
+  .from-purple {
+    --tw-gradient-from: var(--color-purple);
+    --tw-gradient-to: transparent;
+    --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+  }
+  
+  .from-green {
+    --tw-gradient-from: var(--color-green);
+    --tw-gradient-to: transparent;
+    --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+  }
+  
+  .to-accent {
+    --tw-gradient-to: var(--color-accent);
+  }
+  
   .to-purple {
     --tw-gradient-to: var(--color-purple);
   }
   
   .to-purple-light {
     --tw-gradient-to: var(--color-purple-light);
+  }
+  
+  .to-green {
+    --tw-gradient-to: var(--color-green);
   }
   
   /* Liquid glass effects */
@@ -486,4 +507,67 @@ html {
     border: 1px solid rgba(255, 255, 255, 0.1);
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
   }
+}
+
+/* Add shiny and pixelated styles for S-tier */
+.shiny-pixelated.s-tier {
+    font-family: 'Pixelify Sans', monospace !important;
+    font-size: 18px !important; /* Consistent size */
+    font-weight: 700 !important;
+    background: linear-gradient(90deg, #ffd700, #ffed4e, #fff700, #ffd700) !important; /* Gold gradient for S-tier */
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+    background-size: 200% !important;
+    animation: shiny-effect-s 2s linear infinite !important;
+    text-shadow: 0 0 15px rgba(255, 215, 0, 0.8) !important;
+    letter-spacing: 0.5px !important;
+}
+
+/* Add shiny and pixelated styles for A-tier */
+.shiny-pixelated.a-tier {
+    font-family: 'Pixelify Sans', monospace !important;
+    font-size: 18px !important; /* Consistent size */
+    font-weight: 700 !important;
+    background: linear-gradient(90deg, #ff6b6b, #ff8e8e, #ffa8a8, #ff6b6b) !important; /* Red gradient for A-tier */
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+    background-size: 200% !important;
+    animation: shiny-effect-a 2.5s linear infinite !important;
+    text-shadow: 0 0 12px rgba(255, 107, 107, 0.6) !important;
+    letter-spacing: 0.5px !important;
+}
+
+/* Fallback for general shiny-pixelated */
+.shiny-pixelated {
+    font-family: 'Pixelify Sans', monospace !important;
+    font-size: 18px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.5px !important;
+}
+
+@keyframes shiny-effect-s {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes shiny-effect-a {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes shiny-effect {
+    0% {
+        background-position: 0%;
+    }
+    100% {
+        background-position: 200%;
+    }
+}
+
+/* Ensure the font is pixelated */
+body {
+    font-smooth: never;
+    -webkit-font-smoothing: none;
 }

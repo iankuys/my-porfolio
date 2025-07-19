@@ -3,14 +3,14 @@ import { useState, useEffect, useMemo } from 'react';
 // About Section
 function About() {
     const skills = useMemo(() => [
-        { name: 'JavaScript/TypeScript', level: 95 },
-        { name: 'Python', level: 90 },
-        { name: 'React.js/Vue.js', level: 90 },
-        { name: 'AWS Cloud Services', level: 85 },
-        { name: 'Node.js/FastAPI', level: 80 },
+        { name: 'Python', level: 95 },
+        { name: 'JavaScript/TypeScript', level: 90 },
+        { name: 'React.js/Vue.js', level: 87 },
+        { name: 'AWS Cloud Services', level: 90 },
+        { name: 'Flask/FastAPI', level: 80 },
+        { name: 'DevOps', level: 85 },
         { name: 'C++/C#', level: 75 },
-        { name: 'PostgreSQL/NoSQL', level: 80 },
-        { name: 'Docker/DevOps', level: 75 }
+        { name: 'SQL', level: 80 },
     ], []);
 
     const [animated, setAnimated] = useState({});
@@ -45,6 +45,14 @@ function About() {
             window.removeEventListener('scroll', handleSkillAnimation);
         };
     }, [skills]);
+
+    // Update the getSkillTier function to include shiny and pixelated styles
+    const getSkillTier = (level) => {
+        if (level >= 90) return { tier: 'S', style: 'shiny-pixelated s-tier' };
+        if (level >= 80) return { tier: 'A', style: 'shiny-pixelated a-tier' };
+        if (level >= 70) return { tier: 'B', style: 'shiny-pixelated' };
+        return { tier: 'C-tier', style: 'text-gray-400' };
+    };
 
     return (
         <section id="about" className="py-24 bg-primary safe-container">
@@ -107,25 +115,30 @@ function About() {
                                 <h3 className="text-2xl font-bold text-primary">Technical Skills</h3>
                             </div>
                             <div className="space-y-5">
-                                {skills.map((skill, index) => (
-                                    <div key={skill.name} className="transition-all duration-500 hover:scale-105">
-                                        <div className="flex justify-between mb-2">
-                                            <span className="font-semibold text-primary text-base">{skill.name}</span>
-                                            <span className="text-accent font-code text-xs bg-accent-soft px-2 py-1 rounded-full">{skill.level}%</span>
+                                {skills.map((skill, index) => {
+                                    const { tier, style } = getSkillTier(skill.level);
+                                    return (
+                                        <div key={skill.name} className="transition-all duration-500 hover:scale-105">
+                                            <div className="flex justify-between mb-2">
+                                                <span className="font-semibold text-primary text-base">{skill.name}</span>
+                                                <span className={`font-code text-xs bg-accent-soft px-2 py-1 rounded-full ${style}`}>
+                                                    {tier}
+                                                </span>
+                                            </div>
+                                            <div className="w-full bg-tertiary rounded-full h-2 overflow-hidden shadow-inner">
+                                                <div
+                                                    className="h-2 rounded-full transition-all duration-1500 ease-out shadow-lg"
+                                                    style={{
+                                                        width: animated[skill.name] ? `${skill.level}%` : '0%',
+                                                        transitionDelay: `${index * 150}ms`,
+                                                        background: 'linear-gradient(to right, #00d4ff, #a855f7, #10b981)',
+                                                        boxShadow: '0 0 15px rgba(0, 212, 255, 0.4)'
+                                                    }}
+                                                />
+                                            </div>
                                         </div>
-                                        <div className="w-full bg-tertiary rounded-full h-2 overflow-hidden shadow-inner">
-                                            <div
-                                                className="h-2 rounded-full transition-all duration-1500 ease-out shadow-lg"
-                                                style={{
-                                                    width: animated[skill.name] ? `${skill.level}%` : '0%',
-                                                    transitionDelay: `${index * 150}ms`,
-                                                    background: 'linear-gradient(to right, #00d4ff, #a855f7, #10b981)',
-                                                    boxShadow: '0 0 15px rgba(0, 212, 255, 0.4)'
-                                                }}
-                                            />
-                                        </div>
-                                    </div>
-                                ))}
+                                    );
+                                })}
                             </div>
                             
                             {/* Certifications badge */}
@@ -133,7 +146,7 @@ function About() {
                                 <div className="flex items-center justify-center">
                                     <div className="text-center">
                                         <div className="text-accent font-bold text-base mb-1">🏆 Certified</div>
-                                        <div className="text-secondary font-code text-xs">AWS Cloud Practitioner</div>
+                                        <div className="text-secondary font-code text-sm">AWS Cloud Practitioner</div>
                                     </div>
                                 </div>
                             </div>
