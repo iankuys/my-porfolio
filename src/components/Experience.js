@@ -148,7 +148,7 @@ function Experience() {
                                                 </div>
                                                 <div className='flex flex-row lg:flex-col justify-center items-center lg:items-end gap-3'>
                                                     {exp.location && (
-                                                        <p className="text-muted text-sm font-code flex items-center">
+                                                        <p className="text-muted text-sm font-code flex items-center px-4 py-2">
                                                             <span className="text-purple mr-2">📍</span>
                                                             {exp.location}
                                                         </p>
