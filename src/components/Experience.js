@@ -10,25 +10,25 @@ function Experience() {
             company: "Ulendo Technologies",
             location: "Ann Arbor, Michigan",
             period: "April 2024 - June 2025",
-            description: "Independently developed a comprehensive IoT device management dashboard using React.js, JavaScript, and AWS Amplify. Built a standalone desktop app and algorithm to optimize laser-based 3D printing paths using Python (OpenCV, NumPy, SciPy, Eel), JavaScript, HTML/CSS, and Electron.js.",
+            description: "Built a production-grade IoT dashboard in React.js with AWS Amplify to manage over 100+ manufacturing clients across North America. Developed a desktop app to optimize 3D print paths using Python (OpenCV, NumPy) and Electron.js, improving algorithm performance by 80% through OpenCV image-processing/image-downsampling techniques. Automated license delivery and deployment using GitHub Actions, Azure signing, AWS CloudFront, and EventBridge. Engineered ESP32 firmware with ESP-IDF (C++) to stream real-time thermal data over UART/I2C and deployed a resilient cloud pipeline using AWS IoT Core, Lambda, and SQS to handle thousands of device messages daily.",
             icon: <img src="/icons/ulendo.png" alt="Ulendo Technologies" className="w-full h-full object-contain" />,
-            skills: ["React.js", "JavaScript", "Python", "AWS Amplify", "Electron.js", "OpenCV"]
+            skills: ["React.js/Electron.js", "JavaScript", "Python", "AWS", "C++", "OpenCV", "ESP-IDF", "UART/I2C"]
         },
         {
             title: "Software Programmer",
             company: "UCI MIND",
             location: "Irvine, California",
             period: "November 2022 - March 2024",
-            description: "Developed a Dockerized patient statistics web application with Vue.js, JavaScript, Git, and Python Flask backend. Built and used tissue repository web application using R and Shiny and Git with our PostgreSQL database. Developed full-stack C2C video survey application in Bootstrap 5, JavaScript, and Python using FastAPI and Flask.",
+            description: "Developed a Dockerized patient analytics dashboard with Vue.js and Flask, improving data processing time by 40%. Built a standalone R Shiny app for Alzheimer’s tissue tracking integrated with REDCap, enabling streamlined data queries for researchers. Created a full-stack video survey platform using Bootstrap, FastAPI, and Flask for remote cognitive studies. Handled DevOps using Apache2 load balancing, Hyper-V, and Ansible for maintenance automation.",
             icon: <img src="/icons/ucimind.jpg" alt="UCI MIND" className="w-full h-full object-contain" />,
-            skills: ["Vue.js", "Python Flask", "PostgreSQL", "Docker", "R", "Shiny", "FastAPI"]
+            skills: ["Vue.js", "JavaScript", "Python", "R", "Flask", "FastAPI", "Docker", "Microsoft SQL"]
         },
         {
             title: "Software Developer - Meshing Intern",
             company: "Ansys, Inc",
             location: "Remote, USA",
             period: "June 2023 - September 2023",
-            description: "Independently implemented a 3D mesh solution for a PCB model provided by Apple using Python and Ansys Mechanical API. Developed GUI features in Ansys Mechanical utilizing C++, while adeptly managing version control via Git and Azure Ops. Optimized existing features and scripts for enhanced functionalities using C# and XML within the Ansys Mechanical framework.",
+            description: "Implemented a Python-based 3D meshing solution for an Apple PCB model using Ansys Mechanical API, reducing mesh generation time by 25%. Built C++ GUI tools and managed Git/Azure DevOps pipelines to support enterprise-scale releases. Improved simulation workflows by extending legacy features in C# and XML and stabilized internal builds through dependency restructuring.",
             icon: <img src="/icons/ansys.png" alt="Ansys Inc" className="w-full h-full object-contain" />,
             skills: ["Python", "C++", "C#", "Ansys Mechanical", "Git", "Azure DevOps"]
         },
@@ -37,18 +37,18 @@ function Experience() {
             company: "Kheradvar Research Group (KLAB)",
             location: "Irvine, California",
             period: "July 2022 - March 2023",
-            description: "Developed focused features for our Cardiac MRI Segmentation and Analysis app (nysegapp.com) in TypeScript using Vue.js. Engineered 2D and 3D MRI image segmentation and visualization features using OpenCV, PyVista, AWS S3, and Python. Leveraged and built APIs to provide end-to-end functionalities using FastAPI.",
+            description: "Built frontend features for a cardiac MRI segmentation platform using Vue.js and TypeScript. Engineered 2D/3D segmentation pipelines with OpenCV, PyVista, and AWS S3, improving visualization-rendering/image-processing. Delivered full-stack capabilities using FastAPI, optimized background geometry computations with Celery, and maintained schema control via Alembic.",
             icon: <img src="/icons/klab.png" alt="KLAB Research" className="w-full h-full object-contain" />,
-            skills: ["TypeScript", "Vue.js", "OpenCV", "PyVista", "AWS S3", "FastAPI"]
+            skills: ["Vue.js", "TypeScript", "Python", "AWS", "FastAPI", "OpenCV"]
         },
         {
             title: "Software Engineering Intern",
             company: "N2N Connect Berhad",
             location: "Kuala Lumpur, Malaysia",
             period: "August 2020 - October 2020",
-            description: "Participated in developing portfolio management web applications using C#, ASP.NET Core, and Entity Framework. Built a new production microservice data database using PostgreSQL and bash with scripting using Docker. Wrote and iterated bash scripts to automate FTP data retrieval/upload process to populate the new database.",
+            description: "Contributed to portfolio management software using C#, ASP.NET Core, and Entity Framework. Built a production-grade market data backend in PostgreSQL and automated data ingestion via Dockerized bash scripts. Streamlined FTP integration pipelines for live market feeds, improving sync reliability by over 50%, and denormalized tables to improve query performance for analytics and reporting.",
             icon: <img src="/icons/n2n.png" alt="N2N Connect" className="w-full h-full object-contain" />,
-            skills: ["C#", "ASP.NET Core", "PostgreSQL", "Docker", "Bash"]
+            skills: ["C#", "ASP.NET Core", "Entity Framework", "PostgreSQL", "Docker", "Bash"]
         }
     ];
 
