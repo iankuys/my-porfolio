@@ -87,41 +87,48 @@ function Projects() {
     const [hoveredProject, setHoveredProject] = useState(null);
 
     return (
-        <section id="projects" className="py-20 bg-gray-50">
-            <div className="container mx-auto px-4">
-                <h2 className="text-3xl font-bold mb-12 text-center">My Projects</h2>
+        <section id="projects" className="py-20 bg-secondary relative overflow-hidden">
+            {/* Background decoration */}
+            <div className="absolute inset-0">
+                <div className="absolute top-10 right-20 w-64 h-64 bg-purple opacity-5 rounded-full blur-3xl"></div>
+                <div className="absolute bottom-20 left-20 w-80 h-80 bg-accent opacity-5 rounded-full blur-3xl"></div>
+            </div>
+            
+            <div className="container mx-auto px-4 relative z-10">
+                <h2 className="text-3xl font-bold mb-4 text-center text-primary">
+                    My <span className="gradient-text">Projects</span>
+                </h2>
+                <p className="text-center text-muted mb-12 font-code text-sm">
+                    {`// Building innovative solutions with modern tech`}
+                </p>
 
-                <div className="flex flex-col lg:flex-row justify-center gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto justify-items-center">
                     {projects.map((project, index) => (
                         <div
                             key={index}
-                            className="bg-white rounded-lg overflow-hidden shadow transition-all duration-500 flex flex-col"
+                            className="liquid-glass hover-glow transition-all duration-500 flex flex-col h-full w-full overflow-hidden"
                             style={{
-                                transform: hoveredProject === index ? 'scale(1.05)' : 'scale(1)',
-                                boxShadow: hoveredProject === index ? '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)' : '',
-                                width: '400px',
-                                height: '650px',
-                                margin: '0 auto'
+                                transform: hoveredProject === index ? 'scale(1.02)' : 'scale(1)',
+                                minHeight: '500px',
+                                maxWidth: '380px'
                             }}
                             onMouseEnter={() => setHoveredProject(index)}
                             onMouseLeave={() => setHoveredProject(null)}
                         >
-                            {/* Image Container */}
+                            {/* Image Container with glass effect */}
                             <div
-                                className="relative overflow-hidden"
+                                className="relative overflow-hidden bg-glass"
                                 onClick={() => openGallery(index)}
                                 style={{
                                     position: 'relative',
-                                    height: '60%',
-                                    width: '100%',
+                                    height: '200px',
                                     cursor: 'pointer'
                                 }}
                             >
                                 {/* Image or Placeholder */}
                                 {project.images[getCurrentCardImage(index)].includes('/api/placeholder') ? (
-                                    <div className="w-full h-full bg-gradient-to-br flex items-center justify-center"
-                                        style={{ background: 'linear-gradient(to bottom right, #3b82f6, #8b5cf6)' }}>
-                                        <div className="text-white text-2xl font-bold opacity-30">
+                                    <div className="w-full h-full bg-gradient-to-br from-accent to-purple flex items-center justify-center">
+                                        <div className="text-primary text-2xl font-bold opacity-60 font-code">
                                             {project.title.split(' ').map(word => word[0]).join('').substring(0, 3)}
                                         </div>
                                     </div>
@@ -220,24 +227,19 @@ function Projects() {
                                 )}
                             </div>
 
-                            {/* Project Details */}
-                            <div className="p-6" style={{ flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
+                            {/* Project Details with dark theme */}
+                            <div className="p-6 bg-glass" style={{ flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
                                 <div className="mb-2">
-                                    <h3 className="text-xl font-bold text-gray-800">{project.title}</h3>
-                                    <p className="text-gray-600 text-sm font-mono">{project.period}</p>
+                                    <h3 className="text-xl font-bold text-primary">{project.title}</h3>
+                                    <p className="text-accent text-sm font-code">{project.period}</p>
                                 </div>
-                                <p className="text-gray-600 mb-4" style={{ flexGrow: 1 }}>{project.description}</p>
+                                <p className="text-secondary mb-4 leading-relaxed" style={{ flexGrow: 1 }}>{project.description}</p>
 
                                 <div className="mb-4 flex flex-wrap gap-2">
                                     {project.tech.map(tech => (
                                         <span
                                             key={tech}
-                                            className="text-xs font-medium px-3 py-1 rounded-full border"
-                                            style={{
-                                                backgroundColor: '#dbeafe',
-                                                color: '#1e40af',
-                                                borderColor: '#93c5fd'
-                                            }}
+                                            className="text-xs font-medium px-3 py-1 rounded-full bg-accent-soft text-accent border border-accent/20 hover:border-accent/40 transition-all"
                                         >
                                             {tech}
                                         </span>
@@ -247,40 +249,22 @@ function Projects() {
                                 <div className="flex gap-6" style={{ marginTop: 'auto' }}>
                                     <a
                                         href={project.githubUrl}
-                                        className="flex items-center text-gray-700 transition-colors duration-300"
+                                        className="flex items-center text-secondary hover:text-accent transition-all duration-300 hover:translate-x-1"
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        style={{ textDecoration: 'none' }}
-                                        onMouseEnter={(e) => {
-                                            e.target.style.color = '#2563eb';
-                                            e.target.style.transform = 'translateX(4px)';
-                                        }}
-                                        onMouseLeave={(e) => {
-                                            e.target.style.color = '#374151';
-                                            e.target.style.transform = 'translateX(0)';
-                                        }}
                                     >
-                                        <Code size={16} style={{ marginRight: '12px' }} />
-                                        <span>View Code</span>
+                                        <Code size={16} className="mr-3" />
+                                        <span className="font-medium">View Code</span>
                                     </a>
                                     {project.liveUrl && (
                                         <a
                                             href={project.liveUrl}
-                                            className="flex items-center text-gray-700 transition-colors duration-300"
+                                            className="flex items-center text-secondary hover:text-purple transition-all duration-300 hover:translate-x-1"
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            style={{ textDecoration: 'none' }}
-                                            onMouseEnter={(e) => {
-                                                e.target.style.color = '#2563eb';
-                                                e.target.style.transform = 'translateX(4px)';
-                                            }}
-                                            onMouseLeave={(e) => {
-                                                e.target.style.color = '#374151';
-                                                e.target.style.transform = 'translateX(0)';
-                                            }}
                                         >
-                                            <ExternalLink size={16} style={{ marginRight: '12px' }} />
-                                            <span>Live Demo</span>
+                                            <ExternalLink size={16} className="mr-3" />
+                                            <span className="font-medium">Live Demo</span>
                                         </a>
                                     )}
                                 </div>
@@ -397,26 +381,17 @@ function Projects() {
                 )}
 
                 <div className="text-center" style={{ marginTop: '3rem' }}>
-                    <p className="text-gray-600 mb-4">Interested in seeing more of my work?</p>
+                    <p className="text-muted mb-6 font-code text-sm">
+                        {`// Want to see more of my work?`}
+                    </p>
                     <a
                         href="https://github.com/iankuys"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center justify-center bg-white font-medium rounded-lg transition-all duration-300"
-                        style={{
-                            display: 'inline-flex',
-                            padding: '0.75rem 1.5rem',
-                            color: '#2563eb',
-                            border: '2px solid #2563eb',
-                            textDecoration: 'none'
-                        }}
-                        onMouseEnter={(e) => e.target.style.backgroundColor = '#eff6ff'}
-                        onMouseLeave={(e) => e.target.style.backgroundColor = 'white'}
+                        className="btn-secondary hover-lift hover-glow inline-flex items-center"
                     >
-                        <Code size={18} style={{ marginRight: '0.5rem' }} />
-                        <span style={{ backgroundColor: "transparent" }}>
-                            View All Projects on GitHub
-                        </span>
+                        <Code size={18} className="mr-2" />
+                        <span>View All Projects on GitHub</span>
                     </a>
                 </div>
             </div>
